@@ -1,0 +1,20 @@
+server {
+	listen 80;
+        server_name www.DOMAIN DOMAIN;
+
+        root ROOT;
+
+        error_page 404 /404.html;
+
+        access_log /var/log/nginx/DOMAIN.access.log;
+        error_log /var/log/nginx/DOMAIN.error.log;
+
+        index index.html index.php;
+
+        location / {
+                try_files $uri $uri/ /index.php;
+        }
+
+        include defaults;
+        include defaults-symfony2;
+}
